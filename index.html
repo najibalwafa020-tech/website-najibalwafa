@@ -3,55 +3,703 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Pertama Saya</title>
+    <title>GitHub Pages Hosting - Panduan Lengkap</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        nav {
+            background: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        
+        nav ul {
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            flex-wrap: wrap;
+            list-style: none;
         }
+        
+        nav a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 0 5px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            color: #764ba2;
+            transform: translateY(-2px);
+        }
+        
         .container {
-            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section {
             background: white;
+            margin: 40px auto;
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            scroll-margin-top: 100px;
         }
-        h1 {
-            color: #2c3e50;
+        
+        h2 {
+            color: #667eea;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
         }
-        p {
-            color: #7f8c8d;
-            font-size: 1.1em;
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
         }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .feature-card h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            font-size: 0.95em;
+            opacity: 0.95;
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .step strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        code {
+            background: #2d3748;
+            color: #48bb78;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #48bb78;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+        }
+        
+        table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .pricing-card h4 {
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 2em;
+            font-weight: bold;
+            color: #764ba2;
+            margin: 10px 0;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .features-list li {
+            padding: 8px 0;
+            color: #666;
+        }
+        
+        .features-list li:before {
+            content: "✓ ";
+            color: #48bb78;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
+        .info {
+            background: #d1ecf1;
+            padding: 15px;
+            border-left: 4px solid #17a2b8;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        
         .button {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
         }
+        
         .button:hover {
-            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav a {
+                margin: 5px;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-table {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-
+    <header>
+        <h1>🚀 GitHub Pages Hosting</h1>
+        <p>Panduan Lengkap Setup, Biaya, Bandwidth & Backend</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#setup">Setup</a></li>
+            <li><a href="#biaya">Biaya</a></li>
+            <li><a href="#bandwidth">Bandwidth</a></li>
+            <li><a href="#backend">Backend</a></li>
+        </ul>
+    </nav>
+    
     <div class="container">
-        <h1>Halo Dunia! 👋</h1>
-        <p>Selamat datang di website pertama saya yang di-host menggunakan GitHub Pages.</p>
-        <a href="https://github.com" class="button" target="_blank">Pelajari Lebih Lanjut</a>
+        <!-- HERO SECTION -->
+        <section class="section">
+            <h2>Apa itu GitHub Pages?</h2>
+            <p>GitHub Pages adalah layanan hosting website statis yang gratis dari GitHub. Anda dapat menhost website personal, project documentation, atau blog dengan mudah langsung dari repository GitHub Anda.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>💰 Gratis</h4>
+                    <p>Hosting tanpa biaya bulanan selamanya</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ Cepat</h4>
+                    <p>CDN global untuk performa optimal</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔒 Aman</h4>
+                    <p>HTTPS otomatis untuk semua situs</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📱 Responsif</h4>
+                    <p>Bekerja sempurna di semua perangkat</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SETUP SECTION -->
+        <section class="section" id="setup">
+            <h2>🔧 Panduan Setup</h2>
+            
+            <h3>Langkah 1: Buat Repository Baru</h3>
+            <div class="step">
+                <strong>Di GitHub:</strong>
+                <p>1. Klik tombol "+" di sudut atas kanan dan pilih "New repository"</p>
+                <p>2. Beri nama repository: <code>&lt;username&gt;.github.io</code></p>
+                <p>Contoh: <code>najibalwafa.github.io</code></p>
+                <p>3. Pastikan repository bersifat "Public"</p>
+                <p>4. Klik "Create repository"</p>
+            </div>
+            
+            <h3>Langkah 2: Clone Repository</h3>
+            <div class="code-block">
+git clone https://github.com/username/username.github.io.git
+cd username.github.io
+            </div>
+            
+            <h3>Langkah 3: Tambah File HTML</h3>
+            <div class="step">
+                <strong>Buat file index.html:</strong>
+                <p>Di folder repository lokal, buat file bernama <code>index.html</code> dengan konten HTML Anda.</p>
+            </div>
+            
+            <h3>Langkah 4: Push ke GitHub</h3>
+            <div class="code-block">
+git add .
+git commit -m "Initial commit"
+git push origin main
+            </div>
+            
+            <h3>Langkah 5: Akses Website</h3>
+            <div class="step">
+                <strong>Website Anda siap diakses di:</strong>
+                <p><code>https://username.github.io</code></p>
+                <p>Tunggu beberapa menit untuk deployment selesai.</p>
+            </div>
+            
+            <h3>Pengaturan Lanjutan</h3>
+            <div class="step">
+                <strong>Gunakan Domain Custom:</strong>
+                <p>1. Pergi ke Settings repository → Pages</p>
+                <p>2. Di bagian "Custom domain", masukkan domain Anda</p>
+                <p>3. Konfigurasi DNS di provider domain Anda</p>
+            </div>
+            
+            <div class="info">
+                <strong>💡 Tips:</strong> Anda dapat menggunakan Jekyll untuk membuat blog atau website yang lebih dinamis. GitHub Pages mendukung Jekyll secara native.
+            </div>
+        </section>
+        
+        <!-- BIAYA SECTION -->
+        <section class="section" id="biaya">
+            <h2>💰 Biaya & Pricing</h2>
+            
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h4>GitHub Pages Gratis</h4>
+                    <div class="price">$0/bulan</div>
+                    <ul class="features-list">
+                        <li>Hosting unlimited</li>
+                        <li>Bandwidth unlimited*</li>
+                        <li>HTTPS gratis</li>
+                        <li>Repository public</li>
+                        <li>Custom domain support</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card">
+                    <h4>GitHub Pro</h4>
+                    <div class="price">$4/bulan</div>
+                    <ul class="features-list">
+                        <li>Semua fitur gratis</li>
+                        <li>Repository private</li>
+                        <li>Advanced insights</li>
+                        <li>Priority support</li>
+                        <li>GitHub Copilot included</li>
+                    </ul>
+                </div>
+                
+                <div class="pricing-card">
+                    <h4>GitHub Enterprise</h4>
+                    <div class="price">Custom</div>
+                    <ul class="features-list">
+                        <li>Untuk organisasi besar</li>
+                        <li>Dedicated support</li>
+                        <li>Advanced security</li>
+                        <li>SSO dan SAML</li>
+                        <li>Audit logs</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Perbandingan dengan Layanan Hosting Lain</h3>
+            <table>
+                <tr>
+                    <th>Layanan</th>
+                    <th>Harga</th>
+                    <th>Fitur</th>
+                    <th>Kemudahan</th>
+                </tr>
+                <tr>
+                    <td>GitHub Pages</td>
+                    <td>Gratis</td>
+                    <td>Statis + CI/CD</td>
+                    <td>Mudah</td>
+                </tr>
+                <tr>
+                    <td>Netlify</td>
+                    <td>Gratis/Berbayar</td>
+                    <td>Statis + Serverless</td>
+                    <td>Mudah</td>
+                </tr>
+                <tr>
+                    <td>Vercel</td>
+                    <td>Gratis/Berbayar</td>
+                    <td>Statis + Edge Functions</td>
+                    <td>Mudah</td>
+                </tr>
+                <tr>
+                    <td>Heroku</td>
+                    <td>$7+/bulan</td>
+                    <td>Dynamic + Database</td>
+                    <td>Sedang</td>
+                </tr>
+                <tr>
+                    <td>VPS Tradisional</td>
+                    <td>$5+/bulan</td>
+                    <td>Semua tipe</td>
+                    <td>Kompleks</td>
+                </tr>
+            </table>
+            
+            <div class="highlight">
+                <strong>⭐ Keuntungan Finansial:</strong> GitHub Pages adalah pilihan terbaik untuk website statis. Anda bisa menghemat ratusan ribu rupiah per tahun dibanding hosting tradisional.
+            </div>
+        </section>
+        
+        <!-- BANDWIDTH SECTION -->
+        <section class="section" id="bandwidth">
+            <h2>📊 Bandwidth & Limitasi</h2>
+            
+            <h3>Quota GitHub Pages</h3>
+            <table>
+                <tr>
+                    <th>Aspek</th>
+                    <th>Batas</th>
+                    <th>Keterangan</th>
+                </tr>
+                <tr>
+                    <td>Ukuran Repository</td>
+                    <td>Unlimited</td>
+                    <td>Simpan file sebanyak yang Anda butuhkan</td>
+                </tr>
+                <tr>
+                    <td>Bandwidth/Bulan</td>
+                    <td>100 GB*</td>
+                    <td>Sangat cukup untuk sebagian besar website</td>
+                </tr>
+                <tr>
+                    <td>Build per Jam</td>
+                    <td>10 builds</td>
+                    <td>Untuk Jekyll builds</td>
+                </tr>
+                <tr>
+                    <td>Ukuran File</td>
+                    <td>100 MB max</td>
+                    <td>Per file individual</td>
+                </tr>
+                <tr>
+                    <td>Uptime</td>
+                    <td>99.9%</td>
+                    <td>SLA dijamin GitHub</td>
+                </tr>
+            </table>
+            
+            <h3>Estimasi Penggunaan Bandwidth</h3>
+            <div class="step">
+                <strong>Contoh perhitungan untuk website kecil:</strong>
+                <p>• Ukuran rata-rata halaman: 500 KB</p>
+                <p>• Pengunjung per hari: 1000</p>
+                <p>• Penggunaan harian: 500 MB</p>
+                <p>• Penggunaan per bulan: 15 GB</p>
+                <p><strong>Kesimpulan:</strong> Masih jauh di bawah limit 100 GB/bulan ✓</p>
+            </div>
+            
+            <h3>Tips Mengoptimalkan Bandwidth</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📦 Kompresi Gambar</h4>
+                    <p>Gunakan tools seperti TinyPNG untuk mengurangi ukuran gambar</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚡ Minifikasi CSS/JS</h4>
+                    <p>Kurangi ukuran file dengan minification</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🗜️ Gzip Compression</h4>
+                    <p>GitHub Pages otomatis menggunakan gzip</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📱 Lazy Loading</h4>
+                    <p>Muat gambar hanya saat diperlukan</p>
+                </div>
+            </div>
+            
+            <div class="info">
+                <strong>ℹ️ Catatan:</strong> Bandwidth 100 GB/bulan sangat generous. Untuk context: 1 juta page views dengan average 100 KB per halaman = 100 GB. Website kebanyakan tidak akan mencapai limit ini.
+            </div>
+        </section>
+        
+        <!-- BACKEND SECTION -->
+        <section class="section" id="backend">
+            <h2>🔌 Backend & Dinamis Content</h2>
+            
+            <h3>Batasan GitHub Pages</h3>
+            <div class="highlight">
+                <strong>⚠️ Penting:</strong> GitHub Pages hanya mendukung website statis (HTML, CSS, JavaScript client-side). Tidak ada backend server yang berjalan.
+            </div>
+            
+            <h3>Solusi untuk Backend</h3>
+            
+            <h4>1. Menggunakan API Eksternal</h4>
+            <div class="step">
+                <strong>Cara Kerja:</strong>
+                <p>• Website statis yang di-host di GitHub Pages</p>
+                <p>• Backend API di server lain (Firebase, Heroku, dll)</p>
+                <p>• Berkomunikasi via AJAX/Fetch API</p>
+                <p style="margin-top: 10px;"><strong>Contoh:</strong></p>
+            </div>
+            <div class="code-block">
+// fetch('/api/data') dari backend lain
+fetch('https://api.example.com/data')
+  .then(res => res.json())
+  .then(data => console.log(data));
+            </div>
+            
+            <h4>2. Serverless Functions</h4>
+            <table>
+                <tr>
+                    <th>Platform</th>
+                    <th>Fitur</th>
+                    <th>Harga Gratis</th>
+                </tr>
+                <tr>
+                    <td>Netlify Functions</td>
+                    <td>AWS Lambda backend</td>
+                    <td>125k invocations/bulan</td>
+                </tr>
+                <tr>
+                    <td>Vercel Serverless</td>
+                    <td>Edge & serverless functions</td>
+                    <td>Unlimited eksekusi</td>
+                </tr>
+                <tr>
+                    <td>Firebase Functions</td>
+                    <td>Google Cloud backend</td>
+                    <td>2M invocations/bulan</td>
+                </tr>
+                <tr>
+                    <td>AWS Lambda</td>
+                    <td>Function computing</td>
+                    <td>1M invocations/bulan</td>
+                </tr>
+            </table>
+            
+            <h4>3. Database Solusi</h4>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🔥 Firebase Realtime DB</h4>
+                    <p>Database real-time dari Google. Gratis untuk penggunaan kecil.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>☁️ Firebase Firestore</h4>
+                    <p>Database NoSQL modern dengan query powerful. 50k reads gratis/hari.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🛢️ Supabase</h4>
+                    <p>PostgreSQL backend as a service. Gratis dengan banyak fitur.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>⚙️ MongoDB Atlas</h4>
+                    <p>Cloud database. Tier gratis dengan 512MB storage.</p>
+                </div>
+            </div>
+            
+            <h3>Arsitektur Rekomendasi</h3>
+            <div class="info">
+                <strong>📐 Stack Umum:</strong>
+                <p>• Frontend: GitHub Pages (HTML/CSS/JS)</p>
+                <p>• Backend: Firebase, Serverless Functions, atau REST API</p>
+                <p>• Database: Firebase Firestore, MongoDB, PostgreSQL</p>
+                <p>• CDN: GitHub Pages built-in atau Cloudflare</p>
+            </div>
+            
+            <h3>Contoh: Aplikasi Todo dengan Backend</h3>
+            <div class="code-block">
+<!-- Frontend di GitHub Pages -->
+&lt;button onclick="addTodo()"&gt;Add Todo&lt;/button&gt;
+
+&lt;script&gt;
+function addTodo() {
+  fetch('https://your-api.com/todos', {
+    method: 'POST',
+    body: JSON.stringify({ title: 'New Todo' })
+  })
+  .then(res => res.json())
+  .then(data => console.log('Todo added:', data));
+}
+&lt;/script&gt;
+            </div>
+            
+            <h3>Alasan Memilih Backend Eksternal</h3>
+            <ul style="margin: 20px 0; padding-left: 30px;">
+                <li style="margin: 10px 0;">✓ GitHub Pages gratis tetap gratis (hanya frontend)</li>
+                <li style="margin: 10px 0;">✓ Backend scalable dengan mudah</li>
+                <li style="margin: 10px 0;">✓ Database terpisah dan aman</li>
+                <li style="margin: 10px 0;">✓ Dapat menambah fitur dinamis kapan saja</li>
+                <li style="margin: 10px 0;">✓ Banyak pilihan free tier untuk memulai</li>
+            </ul>
+            
+            <div class="highlight">
+                <strong>💡 Rekomendasi:</strong> Untuk project kecil, gunakan Firebase. Gratis, mudah setup, dan scalable. Untuk project besar, pertimbangkan Vercel atau Netlify dengan backend custom.
+            </div>
+        </section>
+        
+        <!-- CONCLUSION -->
+        <section class="section">
+            <h2>Kesimpulan</h2>
+            <p>GitHub Pages adalah solusi hosting terbaik untuk:</p>
+            <ul style="margin: 20px 0; padding-left: 30px;">
+                <li style="margin: 10px 0;"><strong>Website statis</strong> - Blog, portfolio, dokumentasi</li>
+                <li style="margin: 10px 0;"><strong>Biaya rendah</strong> - Sepenuhnya gratis selamanya</li>
+                <li style="margin: 10px 0;"><strong>Kemudahan</strong> - Setup hanya 5 langkah</li>
+                <li style="margin: 10px 0;"><strong>Performa tinggi</strong> - CDN global & HTTPS</li>
+                <li style="margin: 10px 0;"><strong>Integrasi Git</strong> - Push untuk deploy</li>
+            </ul>
+            
+            <p style="margin-top: 20px;">Untuk fitur dinamis & backend, gabungkan dengan layanan serverless gratis seperti Firebase atau Vercel Functions.</p>
+            
+            <button class="button" onclick="window.location.href='https://pages.github.com';">
+                Mulai Setup Sekarang →
+            </button>
+        </section>
     </div>
+    
+    <footer>
+        <p>&copy; 2026 GitHub Pages Hosting Guide | Website sederhana yang di-host menggunakan GitHub Pages</p>
+        <p style="margin-top: 10px; opacity: 0.8;">
+            <a href="https://github.com" target="_blank" style="color: #48bb78; text-decoration: none;">
+                Kunjungi GitHub →
+            </a>
+        </p>
+    </footer>
 
 </body>
 </html>

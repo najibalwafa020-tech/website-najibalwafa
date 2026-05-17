@@ -1,0 +1,47 @@
+🚀 MULAI DARI SINI!
+==================
+
+COPY PASTE SALAH SATU COMMAND INI DI TERMINAL:
+
+═══════════════════════════════════════════════════════
+
+👉 CARA TERCEPAT (PYTHON):
+
+  python3 auto-push.py "masukan file index.html"
+
+═══════════════════════════════════════════════════════
+
+👉 ATAU GUNAKAN BASH:
+
+  bash auto-push.sh "masukan file index.html"
+
+═══════════════════════════════════════════════════════
+
+✨ CONTOH LAINNYA:
+
+  python3 auto-push.py "masukan file index.html style css"
+  python3 auto-push.py "Update backend dan database info"
+  python3 auto-push.py "Tambah fitur baru di website"
+
+═══════════════════════════════════════════════════════
+
+❓ BUTUH BANTUAN?
+
+  Baca: AUTO-PUSH-GUIDE.md (dokumentasi lengkap)
+  Atau: bash quick-ref.sh (quick reference)
+
+═══════════════════════════════════════════════════════
+
+✅ SETELAH SELESAI:
+
+  Website otomatis update di:
+  🌐 https://najibalwafa020-tech.github.io
+
+═══════════════════════════════════════════════════════
+
+INTINYA:
+1. Edit file Anda
+2. Jalankan command python3 auto-push.py "deskripsi"
+3. ✓ SELESAI! File langsung masuk ke GitHub
+
+═══════════════════════════════════════════════════════
